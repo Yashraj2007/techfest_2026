@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@100;200;300;400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --accent: #ffffff;
+  --accent-rgb: 255, 255, 255;
+  --bg: #09090b;
+  --border: rgba(255, 255, 255, 0.06);
+  --bg-gradient: radial-gradient(circle at 50% 50%, #121217 0%, #09090b 100%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
+  color: #fafafa;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Atmospheric Ambient Glow Spotlights - Soft & Understated */
+.ambient-glow {
+  position: fixed;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(150px);
+  opacity: 0.06; /* Very faint and elegant */
+  mix-blend-mode: screen;
+  transition: background 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-top-right {
+  top: -15%;
+  right: -15%;
+}
+
+.glow-bottom-left {
+  bottom: -15%;
+  left: -15%;
+}
+
+/* Glass HUD Navigation */
+.glass-nav {
+  background: rgba(9, 9, 11, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Sleek Minimalist Glass Box */
+.glass-box {
+  position: relative;
+  background: rgba(15, 15, 20, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-box:hover {
+  border-color: rgba(var(--accent-rgb), 0.18);
+  background: rgba(20, 20, 28, 0.6);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.45), 
+    0 0 25px rgba(var(--accent-rgb), 0.01);
+  transform: translateY(-2px);
+}
+
+/* Tech Grid Background */
+.tech-grid {
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+/* Premium Minimalist Button */
+.button-ape {
+  position: relative;
+  padding: 10px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-ape:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.button-ape:active {
+  transform: translateY(1px);
+}
+
+/* Nav links */
+.nav-link {
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Subtle Text Shimmer */
+.gradient-text-shimmer {
+  background: linear-gradient(135deg, #ffffff 30%, rgba(var(--accent-rgb), 0.6) 70%, #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+canvas {
+  touch-action: none;
+}
+
+.cinematic-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0.015; /* Extremely subtle organic texture */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noise'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3%3C/svg%3%3E");
+}
+
+/* Scroll indicator animation */
+@keyframes scroll-wheel {
+  0% { transform: translateY(0); opacity: 0; }
+  25% { opacity: 1; }
+  75% { transform: translateY(10px); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.animate-scroll-wheel {
+  animation: scroll-wheel 2.2s infinite ease-in-out;
+}
